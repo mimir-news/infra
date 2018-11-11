@@ -3,8 +3,7 @@ import os
 import json
 
 
-IMAGE_TAG = os.environ['MESSAGE_QUEUE_IMAGE_TAG']
-IMAGE_NAME = f'eu.gcr.io/mimir-185212/message-queue:{IMAGE_TAG}'
+IMAGE_NAME = os.environ['MESSAGE_QUEUE_IMAGE']
 
 
 ADMIN_USER = os.environ['RABBITMQ_ADMIN_USER']
@@ -30,7 +29,7 @@ def get_source_conf() -> str:
         return f.read()
 
 
-def create_definitions():
+def create_definitions() -> None:
     defn = get_source_definitons()
     defn = replace(defn, 'admin.user', ADMIN_USER)
     defn = replace(defn, 'admin.password_hash', ADMIN_PASSWORD_HASH)
@@ -42,7 +41,7 @@ def create_definitions():
         f.write(defn)
 
 
-def create_rabbitmq_conf():
+def create_rabbitmq_conf() -> None:
     conf = get_source_conf()
     conf = replace(conf, 'admin.user', ADMIN_USER)
     conf = replace(conf, 'admin.password', ADMIN_PASSWORD)
@@ -51,7 +50,7 @@ def create_rabbitmq_conf():
         f.write(conf)
 
 
-def create_rabbitmq_configuration():
+def create_rabbitmq_configuration() -> None:
     create_definitions()
     create_rabbitmq_conf()
 
@@ -61,7 +60,7 @@ def build_image() -> bool:
     return exit_code == 0
 
 
-def delete_generated_sources():
+def delete_generated_sources() -> None:
     os.remove('definitions.json')
     os.remove('rabbitmq.conf')
 

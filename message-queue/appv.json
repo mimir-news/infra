@@ -1,0 +1,5 @@
+{
+    "name": "message-queue",
+    "version": "0.1",
+    "registry": "eu.gcr.io/mimir-185212"
+}

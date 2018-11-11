@@ -1,4 +1,9 @@
-export MESSAGE_QUEUE_IMAGE_TAG=0.1-DEV
+NAME = $(shell appv name)
+IMAGE = $(shell appv image)
+VERSION = $(shell appv version)
+
+export MESSAGE_QUEUE_IMAGE=$(IMAGE)
+
 
 build:
 	mypy build-image.py
@@ -7,7 +12,7 @@ build:
 run:
 	docker run -d --name mq --hostname mq \
 		--network=mimir-net -p 5672:5672 -p 15672:15672 \
-		eu.gcr.io/mimir-185212/message-queue:$(MESSAGE_QUEUE_IMAGE_TAG)
+	    $(IMAGE)	
 
 run-producer:
 	mypy --ignore-missing-imports clients/producer.py
