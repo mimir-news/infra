@@ -1,0 +1,21 @@
+{
+    "url": "https://stratechery.com",
+    "subjects": [
+        {
+            "id": "add049ef-e70a-4e20-9434-e1285972a29f",
+            "symbol": "AAPL",
+            "name": "Apple inc.",
+            "score": 0.0,
+            "articleId": "98b49d26-c818-42a9-81c8-255165efc122"
+        }
+    ],
+    "referer": {
+        "id": "3b990cb2-5046-4786-ab4b-961c48d69659",
+        "externalId": "9631062922759570",
+        "followerCount": 100,
+        "articleId": "98b49d26-c818-42a9-81c8-255165efc122"
+    },
+    "title": "",
+    "body": "",
+    "articleId": "98b49d26-c818-42a9-81c8-255165efc122"
+}
