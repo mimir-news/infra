@@ -7,6 +7,13 @@
             "name": "Apple inc.",
             "score": 0.0,
             "articleId": "98b49d26-c818-42a9-81c8-255165efc122"
+        },
+        {
+            "id": "add049ef-e70a-4e20-9434-e1285972a29f",
+            "symbol": "GOOG",
+            "name": "Alphabet inc.",
+            "score": 0.0,
+            "articleId": "98b49d26-c818-42a9-81c8-255165efc122"
         }
     ],
     "referer": {
