@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pgweb
+  labels:
+    app: pgweb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pgweb
+    spec:
+      containers:
+      - name: pgweb
+        image: sosedoff/pgweb:latest
+        ports:
+        - name: svc-port
+          containerPort: 8081
