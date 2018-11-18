@@ -6,6 +6,16 @@ spec:
   ports:
     - port: 5672
       protocol: TCP
+  selector:
+    app: message-queue
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mq-admin
+spec:
+  ports:
     - port: 15672
       protocol: TCP
   selector:

@@ -12,8 +12,8 @@ spec:
         app: message-queue
     spec:
       containers:
-      - name: spam-filter
-        image: eu.gcr.io/mimir-185212/message-queue:1.0
+      - name: message-queue
+        image: eu.gcr.io/mimir-185212/message-queue:1.0-DEV
         ports:
         - name: amqp-port
           containerPort: 5672
@@ -24,15 +24,17 @@ spec:
           name:  mq-volume
         livenessProbe:
           exec:
-            command: ["rabbitmqctl" "node_health_check" "-t" "3"]
-          initialDelaySeconds: 120
+            command: ["rabbitmqctl", "node_health_check", "-t", "3"]
+          initialDelaySeconds: 30
           timeoutSeconds: 3
         readinessProbe:
           exec:
-            command: ["rabbitmqctl" "node_health_check" "-t" "3"]
-          initialDelaySeconds: 120
+            command: ["rabbitmqctl", "node_health_check", "-t", "3"]
+          initialDelaySeconds: 30
           timeoutSeconds: 3
       volumes:
       - name: mq-volume
         persistentVolumeClaim:
           claimName: mq-vol-claim
+      imagePullSecrets:
+      - name: gcr-json-key
