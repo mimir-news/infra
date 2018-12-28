@@ -91,6 +91,20 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {}
+    },
+    {
+      "name": "q-health-streamlistener",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    },
+    {
+      "name": "q-health-newsscraper",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
     }
   ],
   "exchanges": [
@@ -127,6 +141,22 @@
       "destination": "q-scraped-articles",
       "destination_type": "queue",
       "routing_key": "q-scraped-articles",
+      "arguments": {}
+    },
+    {
+      "source": "x-news",
+      "vhost": "/",
+      "destination": "q-health-streamlistener",
+      "destination_type": "queue",
+      "routing_key": "q-health-streamlistener",
+      "arguments": {}
+    },
+    {
+      "source": "x-news",
+      "vhost": "/",
+      "destination": "q-health-newsscraper",
+      "destination_type": "queue",
+      "routing_key": "q-health-newsscraper",
       "arguments": {}
     }
   ]

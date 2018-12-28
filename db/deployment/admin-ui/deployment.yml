@@ -12,8 +12,11 @@ spec:
         app: pgweb
     spec:
       containers:
-      - name: pgweb
-        image: sosedoff/pgweb:latest
-        ports:
-        - name: svc-port
-          containerPort: 8081
+        - name: pgweb
+          image: sosedoff/pgweb:latest
+          ports:
+            - name: svc-port
+              containerPort: 8081
+          env:
+            - name: SESSIONS
+              value: "1"
