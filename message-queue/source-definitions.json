@@ -105,6 +105,13 @@
       "durable": true,
       "auto_delete": false,
       "arguments": {}
+    },
+    {
+      "name": "q-health-newsranker",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
     }
   ],
   "exchanges": [
@@ -157,6 +164,14 @@
       "destination": "q-health-newsscraper",
       "destination_type": "queue",
       "routing_key": "q-health-newsscraper",
+      "arguments": {}
+    },
+    {
+      "source": "x-news",
+      "vhost": "/",
+      "destination": "q-health-newsranker",
+      "destination_type": "queue",
+      "routing_key": "q-health-newsranker",
       "arguments": {}
     }
   ]
