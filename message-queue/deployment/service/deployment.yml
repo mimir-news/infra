@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: message-queue
-        image: eu.gcr.io/mimir-185212/message-queue:1.0-DEV
+        image: eu.gcr.io/mimir-185212/message-queue:1.0-6911348
         ports:
         - name: amqp-port
           containerPort: 5672
