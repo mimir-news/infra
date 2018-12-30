@@ -35,6 +35,6 @@ spec:
       volumes:
       - name: mq-volume
         persistentVolumeClaim:
-          claimName: mq-vol-claim
+          claimName: mq-pvc
       imagePullSecrets:
       - name: gcr-json-key

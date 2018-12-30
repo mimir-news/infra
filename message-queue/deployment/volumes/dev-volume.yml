@@ -14,7 +14,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mq-vol-claim
+  name: mq-pvc
   namespace: mimir
 spec:
   storageClassName: manual

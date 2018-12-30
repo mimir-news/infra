@@ -24,8 +24,9 @@ spec:
                   name: db-credentials
                   key: postgres.password
           volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: mimir-db-volume
+            - name: db-volume
+              mountPath: /var/lib/postgresql/data
+              subPath: postgres
           livenessProbe:
             exec:
               command: ["pg_isready", "-h", "localhost", "-U", "postgres"]
@@ -37,6 +38,6 @@ spec:
             initialDelaySeconds: 30
             timeoutSeconds: 1
       volumes:
-        - name: mimir-db-volume
+        - name: db-volume
           persistentVolumeClaim:
-            claimName: mimir-db-vol-claim
+            claimName: db-pvc

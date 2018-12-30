@@ -3,7 +3,7 @@ CREATE ROLE streamlistener WITH LOGIN PASSWORD 'password';
 GRANT ALL PRIVILEGES ON DATABASE streamlistener TO streamlistener;
 
 CREATE ROLE stocksearch WITH LOGIN PASSWORD 'password';
-GRANT CONNECT ON DATABASE streamlistner TO stocksearch;
+GRANT CONNECT ON DATABASE streamlistener TO stocksearch;
 GRANT USAGE ON SCHEMA public TO stocksearch;
 
 CREATE DATABASE spamfilter;
