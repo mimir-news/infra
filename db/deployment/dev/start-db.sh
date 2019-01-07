@@ -2,8 +2,7 @@ DB='mimir-db'
 POOLER='db-pooler'
 NETWORK='mimir-net'
 
-docker run -d --name $DB \
-  --network $NETWORK -p 6432:5432 \
+docker run -d --name $DB --network $NETWORK \
   -e POSTGRES_PASSWORD=password \
   postgres:11.1-alpine
 
