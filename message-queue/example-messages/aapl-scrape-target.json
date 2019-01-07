@@ -1,0 +1,21 @@
+{
+  "url": "https://www.cnbc.com/2019/01/02/apple-product-service-expectations-in-2019.html?__source=iosappshare%7Ccom.apple.UIKit.activity.PostToTwitter",
+  "subjects": [
+    {
+      "id":"6cdc9214-7b63-4723-a0ae-7b415d6fc678",
+      "symbol":"AAPL",
+      "name":"Apple Inc.",
+      "score":0,
+      "articleId":"7fbaa7a9-785c-44a9-bed5-58eefe0a8755"
+    }
+  ],
+  "referer": {
+    "id": "57af6587-92af-4d52-96e2-60310763a173",
+    "externalId": "1589233718",
+    "followerCount": 403,
+    "articleId": "7fbaa7a9-785c-44a9-bed5-58eefe0a8755"
+  },
+  "title": "",
+  "body": "",
+  "articleId": "7fbaa7a9-785c-44a9-bed5-58eefe0a8755"
+}

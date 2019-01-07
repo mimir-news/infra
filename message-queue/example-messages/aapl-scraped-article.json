@@ -1,0 +1,39 @@
+{
+    "article": {
+        "articleDate": "2019-01-02T00:00:00Z",
+        "body": "Apple had an exciting 2018.",
+        "id": "691a1479-ab3e-4e71-b673-3c6ae6161049",
+        "keywords": [
+            "revenue",
+            "refresh",
+            "launch",
+            "apple",
+            "2018",
+            "heres",
+            "yearheres",
+            "2019",
+            "expecting",
+            "services",
+            "way",
+            "thats",
+            "subscriptions"
+        ],
+        "title": "Here's what we're expecting Apple to launch this year",
+        "url": "https://www.cnbc.com/2019/01/02/apple-product-service-expectations-in-2019.html"
+    },
+    "referer": {
+        "articleId": "691a1479-ab3e-4e71-b673-3c6ae6161049",
+        "externalId": "1589233718",
+        "followerCount": 403,
+        "id": "57af6587-92af-4d52-96e2-60310763a173"
+    },
+    "subjects": [
+        {
+            "articleId": "691a1479-ab3e-4e71-b673-3c6ae6161049",
+            "id": "6cdc9214-7b63-4723-a0ae-7b415d6fc678",
+            "name": "Apple Inc.",
+            "score": 0.3061352593182261,
+            "symbol": "AAPL"
+        }
+    ]
+}

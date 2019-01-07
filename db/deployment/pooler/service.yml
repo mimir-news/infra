@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-pooler
+spec:
+  ports:
+    - port: 5432
+      protocol: TCP
+  selector:
+    app: db-pooler
+  type: ClusterIP

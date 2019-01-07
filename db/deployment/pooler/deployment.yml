@@ -1,0 +1,67 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: db-pooler
+  labels:
+    app: db-pooler
+spec:
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: db-pooler
+    spec:
+      containers:
+        - name: pgbouncer
+          image: eu.gcr.io/mimir-185212/pgbouncer:1.8.1
+          ports:
+            - name: svc-port
+              containerPort: 5432
+          env:
+            - name: DB_HOST
+              value: mimir-db
+            - name: LISTEN_PORT
+              value: "5432"
+            - name: POOL_MODE
+              value: "transaction"
+            - name: AUTH_FILE
+              value: "/etc/pgbouncer/userlist.txt"
+            - name: AUTH_TYPE
+              value: "md5"
+            - name: MAX_CLIENT_CONN
+              value: "500"
+            - name: DEFAULT_POOL_SIZE
+              value: "5"
+          volumeMounts:
+            - name: userlist
+              mountPath: /etc/pgbouncer/userlist.txt
+              subPath: userlist.txt
+              readOnly: true
+          readinessProbe:
+            tcpSocket:
+              port: svc-port
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: svc-port
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          lifecycle:
+            preStop:
+              exec:
+                # Allow existing queries clients to complete within 120 seconds
+                command: ["/bin/sh", "-c", "killall -INT pgbouncer && sleep 120"]
+          imagePullPolicy: Always
+      volumes:
+        - name: userlist
+          secret:
+            secretName: db-credentials
+            items:
+              - key: dbpool.userlist
+                path: userlist.txt
+      imagePullSecrets:
+        - name: gcr-json-key

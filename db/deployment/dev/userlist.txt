@@ -1,0 +1,7 @@
+"postgres" "md532e12f215ba27cb750c9e093ce4b5127"
+"streamlistener" "md5277c1aee6d8100777debac35041ae106"
+"spamfilter" "md518166459b055e7c3b36a029f1275de52"
+"newsranker" "md5f838ad7ae874bddb03123ba56ae749d1"
+"directory" "md523c4a4d300f62701f2a2c71222b36ac3"
+"newssearch" "md520a7275571b0ec13fd80672557822245"
+"stocksearch" "md501f2f7bd4ede5155bbe2ad89f1af2b9f"
