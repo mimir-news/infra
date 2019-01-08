@@ -4,7 +4,7 @@ data:
     [databases]
     streamlistener = host=mimir-db port=5432 dbname=streamlistener user=streamlistener
     spamfilter = host=mimir-db port=5432 dbname=spamfilter user=spamfilter
-    newsranker = host=mimir-db port=5432 dbname=newsranker user=newsranker pool_mode = session
+    newsranker = host=mimir-db port=5432 dbname=newsranker user=newsranker
     directory = host=mimir-db port=5432 dbname=directory user=directory
     newssearch = host=mimir-db port=5432 dbname=newsranker user=newssearch
     stocksearch = host=mimir-db port=5432 dbname=streamlistener user=stocksearch
