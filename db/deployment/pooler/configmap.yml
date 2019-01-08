@@ -1,0 +1,28 @@
+apiVersion: v1
+data:
+  pgbouncer.ini: |
+    [databases]
+    streamlistener = host=mimir-db port=5432 dbname=streamlistener user=streamlistener
+    spamfilter = host=mimir-db port=5432 dbname=spamfilter user=spamfilter
+    newsranker = host=mimir-db port=5432 dbname=newsranker user=newsranker pool_mode = session
+    directory = host=mimir-db port=5432 dbname=directory user=directory
+    newssearch = host=mimir-db port=5432 dbname=newsranker user=newssearch
+    stocksearch = host=mimir-db port=5432 dbname=streamlistener user=stocksearch
+
+    [pgbouncer]
+    # Generic settings
+    listen_addr = 0.0.0.0
+    listen_port = 5432
+    auth_file = /etc/pgbouncer/userlist.txt
+    auth_type = md5
+    pool_mode = transaction
+    server_reset_query = RESET ALL;
+    max_client_conn = 500
+    default_pool_size = 5
+    ignore_startup_parameters = extra_float_digits
+
+    # Log settings
+    admin_users = postgres
+kind: ConfigMap
+metadata:
+  name: pgbouncer-config

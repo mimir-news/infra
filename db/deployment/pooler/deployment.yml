@@ -23,22 +23,14 @@ spec:
           env:
             - name: DB_HOST
               value: mimir-db
-            - name: LISTEN_PORT
-              value: "5432"
-            - name: POOL_MODE
-              value: "transaction"
-            - name: AUTH_FILE
-              value: "/etc/pgbouncer/userlist.txt"
-            - name: AUTH_TYPE
-              value: "md5"
-            - name: MAX_CLIENT_CONN
-              value: "500"
-            - name: DEFAULT_POOL_SIZE
-              value: "5"
           volumeMounts:
             - name: userlist
               mountPath: /etc/pgbouncer/userlist.txt
               subPath: userlist.txt
+              readOnly: true
+            - name: pgbouncer-config
+              mountPath: /etc/pgbouncer/pgbouncer.ini
+              subPath: pgbouncer.ini
               readOnly: true
           readinessProbe:
             tcpSocket:
@@ -63,5 +55,11 @@ spec:
             items:
               - key: dbpool.userlist
                 path: userlist.txt
+        - name: pgbouncer-config
+          configMap:
+            name: pgbouncer-config
+            items:
+              - key: pgbouncer.ini
+                path: pgbouncer.ini
       imagePullSecrets:
         - name: gcr-json-key
