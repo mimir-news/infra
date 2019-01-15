@@ -48,6 +48,13 @@ spec:
                 # Allow existing queries clients to complete within 120 seconds
                 command: ["/bin/sh", "-c", "killall -INT pgbouncer && sleep 120"]
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: "100m"
+            limits:
+              memory: 100Mi
+              cpu: "100m"
       volumes:
         - name: userlist
           secret:

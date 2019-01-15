@@ -37,6 +37,13 @@ spec:
               command: ["pg_isready", "-h", "localhost", "-U", "postgres"]
             initialDelaySeconds: 30
             timeoutSeconds: 1
+          resources:
+            requests:
+              memory: 400Mi
+              cpu: "200m"
+            limits:
+              memory: 400Mi
+              cpu: "200m"
       volumes:
         - name: db-volume
           persistentVolumeClaim:
